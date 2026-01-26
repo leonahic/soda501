@@ -1,0 +1,25 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 income   R-squared:                       0.058
+Model:                            OLS   Adj. R-squared:                  0.048
+Method:                 Least Squares   F-statistic:                     5.771
+Date:                Sun, 25 Jan 2026   Prob (F-statistic):             0.0183
+Time:                        22:05:07   Log-Likelihood:                -1216.3
+No. Observations:                  95   AIC:                             2437.
+Df Residuals:                      93   BIC:                             2442.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept   1.561e+05   2.47e+04      6.324      0.000    1.07e+05    2.05e+05
+education  -1.768e+04   7360.934     -2.402      0.018   -3.23e+04   -3065.701
+==============================================================================
+Omnibus:                       90.113   Durbin-Watson:                   2.024
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              705.706
+Skew:                           3.211   Prob(JB):                    5.73e-154
+Kurtosis:                      14.706   Cond. No.                         9.78
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

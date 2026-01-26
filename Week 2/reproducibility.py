@@ -83,12 +83,17 @@ import sys
 import platform
 
 import logging
-from datetime import datetime
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import statsmodels.formula.api as smf
+import pkg_resources
 
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(message)s",
+    handlers=[logging.FileHandler("Week 2/analysis_log.txt", mode="a")]
+)
 
 logging.info("platform module file: " + str(platform.__file__))
 logging.info("python executable: " + str(sys.executable))
@@ -107,22 +112,16 @@ logging.info("os/platform summary: " + str(platform.platform()))
 # - processed data (cleaned outputs)
 # - figures and tables (final outputs)
 
-os.makedirs("data/raw", exist_ok=True)
-os.makedirs("data/processed", exist_ok=True)
-os.makedirs("outputs/figures", exist_ok=True)
-os.makedirs("outputs/tables", exist_ok=True)
+os.makedirs("Week 2/data/raw", exist_ok=True)
+os.makedirs("Week 2/data/processed", exist_ok=True)
+os.makedirs("Week 2/outputs/figures", exist_ok=True)
+os.makedirs("Week 2/outputs/tables", exist_ok=True)
 
 # Logging creates an audit trail:
 # - What ran
 # - In what order
 # - With what parameters
 # - Where outputs were written
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="%(message)s",
-    handlers=[logging.FileHandler("analysis_log.txt", mode="a")]
-)
 
 # Pipeline overview:
 #   1) Load data
@@ -142,7 +141,7 @@ logging.info("Starting analysis pipeline")
 
 logging.info("Loading education/income dataset from data/raw/education_income.csv")
 
-education_income_raw = pd.read_csv("data/raw/education_income.csv")
+education_income_raw = pd.read_csv("Week 2/data/raw/education_income.csv")
 
 logging.info("Rows loaded: " + str(education_income_raw.shape[0]))
 logging.info("Columns loaded: " + str(education_income_raw.shape[1]))
@@ -180,37 +179,94 @@ education_income_log = education_income_log.dropna(subset=["log_income"])
 logging.info("Rows with finite log(income): " + str(education_income_log.shape[0]))
 
 logging.info("Saving processed data")
-education_income_clean.to_csv("data/processed/cleaned_education_income.csv", index=False)
+education_income_clean.to_csv("Week 2/data/processed/cleaned_education_income.csv", index=False)
 
 logging.info("Fitting Model 1: income ~ education")
 # TODO: model_1 = ...
+model_1 = smf.ols('income ~ education', data=education_income_log).fit()
 
 logging.info("Fitting Model 2: income ~ education + education^2")
-# TODO: model_2 = ...
+model_2 = smf.ols('log_income ~ education + I(education ** 2)', data=education_income_log).fit()
 
 logging.info("Fitting Model 3: log(income) ~ education (finite log income rows only)")
 # TODO: model_3 = ...
+model_3 = smf.ols('log_income ~ education', data=education_income_log).fit()
 
 # Save model summaries (plain text) for replication checks
 logging.info("Saving regression summaries to outputs/tables/")
+
 # TODO: write model summaries to:
-#   outputs/tables/model_1_summary.txt
-#   outputs/tables/model_2_summary.txt
-#   outputs/tables/model_3_summary.txt
+for name, model in zip(['model_1', 'model_2', 'model_3'], [model_1, model_2, model_3]):
+    with open(f'Week 2/outputs/tables/{name}_summary.txt', 'w') as f:
+        f.write(model.summary().as_text())
+
+
 # TODO: create and write a regression_coefficients.csv table
+
+coeffs_df = pd.concat([model_1.params, model_2.params, model_3.params], axis=1)
+coeffs_df.columns = ['Model 1', 'Model 2', 'Model 3']
+coeffs_df.to_csv('Week 2/outputs/tables/regression_coefficients.csv')
+
+
+x_range = np.linspace(education_income_log['education'].min(), 
+                     education_income_log['education'].max(), 100)
+plot_df = pd.DataFrame({'education': x_range})
+
+logging.info("Generating Plot 1")
+plt.figure(figsize=(8, 5))
+plt.scatter(education_income_log['education'], education_income_log['income'], alpha=0.3, label='Data')
+plt.plot(x_range, model_1.predict(plot_df), color='red', label='Linear Fit')
+plt.title('Model 1: Income vs Education')
+plt.xlabel('Years of Education')
+plt.ylabel('Income')
+plt.legend()
+plt.savefig('Week 2/outputs/figures/model_1_plot.png')
+plt.close()
+
+logging.info("Generating Plot 2")
+plt.figure(figsize=(8, 5))
+plt.scatter(education_income_log['education'], education_income_log['log_income'], alpha=0.3, label='Data')
+plt.plot(x_range, model_2.predict(plot_df), color='green', label='Quadratic Fit')
+plt.title('Model 2: Log Income vs Education + Education^2')
+plt.xlabel('Years of Education')
+plt.ylabel('Log(Income)')
+plt.legend()
+plt.savefig('Week 2/outputs/figures/model_2_plot.png')
+plt.close()
+
+logging.info("Generating Plot 3")
+plt.figure(figsize=(8, 5))
+plt.scatter(education_income_log['education'], education_income_log['log_income'], alpha=0.3, label='Data')
+plt.plot(x_range, model_3.predict(plot_df), color='orange', label='Log-Linear Fit')
+plt.title('Model 3: Log Income vs Education')
+plt.xlabel('Years of Education')
+plt.ylabel('Log(Income)')
+plt.legend()
+plt.savefig('Week 2/outputs/figures/model_3_plot.png')
+plt.close()
+
+logging.info("All plots saved to Week 2/outputs/figures/")
 
 # TODO (students):
 # - Write session info output to outputs/session_info.txt
-
 logging.info("Saving session information")
-# TODO: write session info to outputs/session_info.txt
+with open('Week 2/outputs/session_info.txt', 'w') as f:
+    f.write(f"OS: {platform.system()} {platform.release()}\n")
+    f.write(f"Python version: {platform.python_version()}\n")
+    f.write("\nInstalled Packages:\n")
+    dists = [f"{d.project_name}=={d.version}" for d in pkg_resources.working_set]
+    f.write("\n".join(sorted(dists)))
+
+# Save a clean version for pip to use
+logging.info("Generating requirements.txt for environment replication")
+with open('Week 2/requirements.txt', 'w') as f:
+    dists = [f"{d.project_name}=={d.version}" for d in pkg_resources.working_set]
+    f.write("\n".join(sorted(dists)))
+
+# Configure logging to save to a file
+logging.shutdown()
 
 # TODO (students):
 # - After everything runs, snapshot dependencies.
 # - Commit requirements.txt to GitHub.
 
-logging.info("Snapshotting dependencies to requirements.txt")
-# TODO: run outside Python:
-#   pip freeze > requirements.txt
-
-logging.info("Analysis pipeline completed successfully")

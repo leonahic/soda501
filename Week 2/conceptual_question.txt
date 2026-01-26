@@ -1,0 +1,4 @@
+renv ensures reproducibility by creating a project library, preventing dependency differences.
+It achieves this using the renv.lock file, which records the versions and sources of every package used in the project.
+When a person runs renv::restore(), it installs those specific versions to recreate the original development environment. 
+Without this version control, even same code can fail since different package versions may introduce changes in the results.
