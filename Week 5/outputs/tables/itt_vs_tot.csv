@@ -1,0 +1,3 @@
+Estimator,Estimate,Calculation
+ITT (Intent-to-Treat),0.00894694732883373,Slope of Y ~ Treat
+TOT (IV / LATE),0.014973175936726025,ITT / (Slope of Received ~ Treat)

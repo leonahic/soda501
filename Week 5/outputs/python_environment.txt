@@ -1,0 +1,3 @@
+Python: 3.12.3 (v3.12.3:f6650f9ad7, Apr  9 2024, 08:18:47) [Clang 13.0.0 (clang-1300.0.29.30)]
+Executable: /usr/local/bin/python3.12
+Platform: macOS-26.2-arm64-arm-64bit
