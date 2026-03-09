@@ -1,0 +1,308 @@
+doc_id,event_type,event_date_iso,date_is_approximate,country,admin1_or_state,city_or_local,geo_precision,actors,outcome_summary,extraction_confidence,parse_failed,raw_text,model_raw_output,evidence_json,uncertainty_flags_json
+doc_001,protest,2026-03-14,True,Chile,Santiago,Santiago,city,"[{'name': 'thousands of people', 'role': 'participants'}]",minor clashes occurred with police arrests made.,0.9,False,Breaking: Thousands rallied in Santiago on 2026-03-14 demanding pension reform. Police reported minor clashes; 12 were arrested.," ```json
+{
+    ""doc_id"": ""doc_1"",
+    ""event_type"": ""protest"",
+    ""event_date_iso"": ""2026-03-14"",
+    ""date_is_approximate"": true,
+    ""country"": ""Chile"",
+    ""admin1_or_state"": ""Santiago"",
+    ""city_or_local"": ""Santiago"",
+    ""geo_precision"": ""city"",
+    ""actors"": [
+        {
+            ""name"": ""thousands of people"",
+            ""role"": ""participants""
+        }
+    ],
+    ""outcome_summary"": ""minor clashes occurred with police arrests made."",
+    ""extraction_confidence"": 0.9,
+    ""uncertainty_flags"": [],
+    ""evidence"": [
+        {
+            ""field"": ""event_type"",
+            ""quote"": ""Breaking: Thousands rallied in Santiago on 2026-03-14 demanding pension reform.""
+        },
+        {
+            ""field"": ""date"",
+            ""quote"": ""2026-03-14""
+        },
+        {
+            ""field"": ""location"",
+            ""quote"": ""in Santiago""
+        },
+        {
+            ""field"": ""actors"",
+            ""quote"": ""thousands of people""
+        },
+        {
+            ""field"": ""outcome"",
+            ""quote"": ""Police reported minor clashes; 12 were arrested.""
+        }
+    ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""Breaking: Thousands rallied in Santiago on 2026-03-14 demanding pension reform.""}, {""field"": ""date"", ""quote"": ""2026-03-14""}, {""field"": ""location"", ""quote"": ""in Santiago""}, {""field"": ""actors"", ""quote"": ""thousands of people""}, {""field"": ""outcome"", ""quote"": ""Police reported minor clashes; 12 were arrested.""}]",[]
+doc_002,policy_change,2023-03-02,True,unknown,national,unknown,unknown,['lawmakers'],Environmental groups praised the vote.,0.95,False,"On March 2nd, lawmakers passed the 'Clean Air Act' amendment in the national assembly. Environmental groups praised the vote."," {""doc_id"": ""doc_XXX"", ""event_type"": ""policy_change"", ""event_date_iso"": ""2023-03-02"", ""date_is_approximate"": true, ""country"": ""unknown"", ""admin1_or_state"": ""national"", ""city_or_local"": ""unknown"", ""geo_precision"": ""unknown"", ""actors"": [""lawmakers""], ""outcome_summary"": ""Environmental groups praised the vote."", ""extraction_confidence"": 0.95, ""uncertainty_flags"": [], ""evidence"": [{""field"": ""event_type"", ""quote"": ""passed the 'Clean Air Act' amendment""}, {""field"": ""date"", ""quote"": ""March 2nd""}, {""field"": ""location"", ""quote"": ""in the national assembly""}, {""field"": ""actors"", ""quote"": ""lawmakers""}, {""field"": ""outcome"", ""quote"": ""Environmental groups praised the vote.""}]}","[{""field"": ""event_type"", ""quote"": ""passed the 'Clean Air Act' amendment""}, {""field"": ""date"", ""quote"": ""March 2nd""}, {""field"": ""location"", ""quote"": ""in the national assembly""}, {""field"": ""actors"", ""quote"": ""lawmakers""}, {""field"": ""outcome"", ""quote"": ""Environmental groups praised the vote.""}]",[]
+doc_003,election,,False,,,,unknown,[],,0.5,False,Election officials said voting will take place next Sunday. Turnout is expected to be high in the capital.," {
+    ""event_type"": ""election"",
+    ""evidence"": [
+        {""field"": ""event_type"", ""quote"": ""Election officials said voting will take place next Sunday.""},
+        {""field"": ""date"", ""quote"": ""next Sunday""},
+        {""field"": ""location"", ""quote"": ""capital""}
+    ]
+}","[{""field"": ""event_type"", ""quote"": ""Election officials said voting will take place next Sunday.""}, {""field"": ""date"", ""quote"": ""next Sunday""}, {""field"": ""location"", ""quote"": ""capital""}]",[]
+doc_004,disaster,,False,,,,unknown,[],,0.5,False,"A 6.2 magnitude earthquake struck near the coastal city overnight, damaging dozens of homes and cutting power to 40,000 residents."," {""event_type"": ""disaster"", ""evidence"": [{""field"": ""event_type"", ""quote"": ""A 6.2 magnitude earthquake""}, {""field"": ""location"", ""quote"": ""near the coastal city""}, {""field"": ""actors"", ""quote"": ""damageing dozens of homes and cutting power""}, {""field"": ""outcome"", ""quote"": ""cutting power""}]}","[{""field"": ""event_type"", ""quote"": ""A 6.2 magnitude earthquake""}, {""field"": ""location"", ""quote"": ""near the coastal city""}, {""field"": ""actors"", ""quote"": ""damageing dozens of homes and cutting power""}, {""field"": ""outcome"", ""quote"": ""cutting power""}]",[]
+doc_005,violence,,False,,,,unknown,[],,0.5,False,"Witnesses described gunfire outside a nightclub late Friday; at least two people were injured, but details remain unclear."," ```json
+{
+  ""event_type"": ""violence"",
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""Witnesses described gunfire outside a nightclub late Friday""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""outside a nightclub late Friday""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""Witnesses described gunfire outside a nightclub late Friday""}, {""field"": ""location"", ""quote"": ""outside a nightclub late Friday""}]",[]
+doc_006,policy_change,2023-09-07T14:38:16Z,True,USA,California,Los Angeles,county,['Governor'],The new curfew order was met with criticism.,0.8,False,The governor announced a new curfew order effective immediately. Critics called it an overreach.," {""doc_id"": ""doc_XXX"", ""event_type"": ""policy_change"", ""event_date_iso"": ""2023-09-07T14:38:16Z"", ""date_is_approximate"": true, ""country"": ""USA"", ""admin1_or_state"": ""California"", ""city_or_local"": ""Los Angeles"", ""geo_precision"": ""county"", ""actors"": [""Governor""], ""outcome_summary"": ""The new curfew order was met with criticism."", ""extraction_confidence"": 0.8, ""uncertainty_flags"": [], ""evidence"": [{""field"": ""event_type"", ""quote"": ""New curfew order""}, {""field"": ""date"", ""quote"": ""effective immediately""}, {""field"": ""location"", ""quote"": ""California, Los Angeles""}, {""field"": ""actors"", ""quote"": ""Governor""}, {""field"": ""outcome"", ""quote"": ""Critics called it an overreach""}]}","[{""field"": ""event_type"", ""quote"": ""New curfew order""}, {""field"": ""date"", ""quote"": ""effective immediately""}, {""field"": ""location"", ""quote"": ""California, Los Angeles""}, {""field"": ""actors"", ""quote"": ""Governor""}, {""field"": ""outcome"", ""quote"": ""Critics called it an overreach""}]",[]
+doc_007,protest,,False,,,,unknown,[],,0.5,False,Early April saw renewed demonstrations in the northern province after fuel prices rose again.," ```json
+{
+  ""doc_id"": ""doc_987"",
+  ""event_type"": ""protest"",
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""renewed demonstrations""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": ""Early April""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""the northern province""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""renewed demonstrations""}, {""field"": ""date"", ""quote"": ""Early April""}, {""field"": ""location"", ""quote"": ""the northern province""}]",[]
+doc_008,disaster,,False,,,,unknown,[],,0.5,False,"Floodwaters inundated low-lying neighborhoods; emergency shelters opened at local schools, officials said."," {
+    ""doc_id"": ""doc_XXX"",
+    ""event_type"": ""disaster"",
+    ""evidence"": [
+        {""field"": ""event_type"", ""quote"": ""Floodwaters inundated low-lying neighborhoods""},
+        {""field"": ""date"", ""quote"": """"},
+        {""field"": ""location"", ""quote"": ""low-lying neighborhoods""},
+        {""field"": ""actors"", ""quote"": ""emergency shelters opened at local schools""},
+        {""field"": ""outcome"", ""quote"": """"}
+    ]
+}","[{""field"": ""event_type"", ""quote"": ""Floodwaters inundated low-lying neighborhoods""}, {""field"": ""date"", ""quote"": """"}, {""field"": ""location"", ""quote"": ""low-lying neighborhoods""}, {""field"": ""actors"", ""quote"": ""emergency shelters opened at local schools""}, {""field"": ""outcome"", ""quote"": """"}]",[]
+doc_009,election,2023-04-01T00:00:00Z,True,Belgium,Brussels,,sub-national,"[{'role': 'opposition leaders', 'group': 'international observers'}]",,0.9,False,Opposition leaders met with international observers in Brussels to discuss election monitoring.," ```json
+{
+  ""doc_id"": ""doc_123"",
+  ""event_type"": ""election"",
+  ""event_date_iso"": ""2023-04-01T00:00:00Z"",
+  ""date_is_approximate"": true,
+  ""country"": ""Belgium"",
+  ""admin1_or_state"": ""Brussels"",
+  ""city_or_local"": null,
+  ""geo_precision"": ""sub-national"",
+  ""actors"": [
+    {
+      ""role"": ""opposition leaders"",
+      ""group"": ""international observers""
+    }
+  ],
+  ""outcome_summary"": null,
+  ""extraction_confidence"": 0.9,
+  ""uncertainty_flags"": [],
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""Opposition leaders met with international observers in Brussels to discuss election monitoring.""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": ""2023-04-01T00:00:00Z""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""Brussels""
+    },
+    {
+      ""field"": ""actors"",
+      ""quote"": ""Opposition leaders, international observers""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""Opposition leaders met with international observers in Brussels to discuss election monitoring.""}, {""field"": ""date"", ""quote"": ""2023-04-01T00:00:00Z""}, {""field"": ""location"", ""quote"": ""Brussels""}, {""field"": ""actors"", ""quote"": ""Opposition leaders, international observers""}]",[]
+doc_010,violence,2023-XX-XX,True,USA,New York City,downtown,unknown,"[{'name': 'Police', 'role': 'police officers'}, {'name': 'suspect', 'role': 'criminal'}]",The suspect was arrested after a stabbing incident.,0.9,False,Police said the suspect was arrested after a stabbing in downtown; the mayor urged calm.," ```json
+{
+  ""event_type"": ""violence"",
+  ""event_date_iso"": ""2023-XX-XX"",
+  ""date_is_approximate"": true,
+  ""country"": ""USA"",
+  ""admin1_or_state"": ""New York City"",
+  ""city_or_local"": ""downtown"",
+  ""geo_precision"": ""unknown"",
+  ""actors"": [
+    {
+      ""name"": ""Police"",
+      ""role"": ""police officers""
+    },
+    {
+      ""name"": ""suspect"",
+      ""role"": ""criminal""
+    }
+  ],
+  ""outcome_summary"": ""The suspect was arrested after a stabbing incident."",
+  ""extraction_confidence"": 0.9,
+  ""uncertainty_flags"": [],
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""Police said the suspect was arrested after a stabbing in downtown;""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": """"
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""in downtown;""
+    },
+    {
+      ""field"": ""actors"",
+      ""quote"": ""Police said the suspect was arrested after a stabbing in downtown; the mayor urged calm.""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""Police said the suspect was arrested after a stabbing in downtown;""}, {""field"": ""date"", ""quote"": """"}, {""field"": ""location"", ""quote"": ""in downtown;""}, {""field"": ""actors"", ""quote"": ""Police said the suspect was arrested after a stabbing in downtown; the mayor urged calm.""}]",[]
+doc_011,policy_change,,False,,,,unknown,[],,0.5,False,"Parliament reversed the prior ban on rideshare apps, citing labor market flexibility."," ```json
+{
+  ""doc_id"": ""doc_123"",
+  ""event_type"": ""policy_change"",
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""Parliament reversed the prior ban""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": ""prior ban""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""Parliament""
+    },
+    {
+      ""field"": ""actors"",
+      ""quote"": ""reversed the prior ban""
+    }
+  ]
+}```","[{""field"": ""event_type"", ""quote"": ""Parliament reversed the prior ban""}, {""field"": ""date"", ""quote"": ""prior ban""}, {""field"": ""location"", ""quote"": ""Parliament""}, {""field"": ""actors"", ""quote"": ""reversed the prior ban""}]",[]
+doc_012,protest,2023-11-04T00:00:00Z,True,,,,unknown,[],The protest was postponed.,0.9,False,"A protest was planned for tomorrow, but organizers postponed it due to severe weather warnings."," ```json
+{
+  ""doc_id"": ""doc_YYY"",
+  ""event_type"": ""protest"",
+  ""event_date_iso"": ""2023-11-04T00:00:00Z"",
+  ""date_is_approximate"": true,
+  ""country"": null,
+  ""admin1_or_state"": null,
+  ""city_or_local"": null,
+  ""geo_precision"": ""unknown"",
+  ""actors"": [],
+  ""outcome_summary"": ""The protest was postponed."",
+  ""extraction_confidence"": 0.9,
+  ""uncertainty_flags"": [],
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""A protest was planned for tomorrow""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": ""2023-11-04T00:00:00Z""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""tomorrow""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""A protest was planned for tomorrow""}, {""field"": ""date"", ""quote"": ""2023-11-04T00:00:00Z""}, {""field"": ""location"", ""quote"": ""tomorrow""}]",[]
+doc_013,policy_change,,True,,,,unknown,[],,0.8,False,"Following a landslide, the ministry declared a state of emergency in two districts."," ```json
+{
+    ""event_type"": ""policy_change"",
+    ""event_date_iso"": null,
+    ""date_is_approximate"": true,
+    ""country"": null,
+    ""admin1_or_state"": null,
+    ""city_or_local"": null,
+    ""geo_precision"": ""unknown"",
+    ""actors"": [],
+    ""outcome_summary"": null,
+    ""extraction_confidence"": 0.8,
+    ""uncertainty_flags"": [],
+    ""evidence"": [
+        {
+            ""field"": ""event_type"",
+            ""quote"": ""Following a landslide""
+        },
+        {
+            ""field"": ""date"",
+            ""quote"": """"
+        },
+        {
+            ""field"": ""location"",
+            ""quote"": ""in two districts.""
+        }
+    ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""Following a landslide""}, {""field"": ""date"", ""quote"": """"}, {""field"": ""location"", ""quote"": ""in two districts.""}]",[]
+doc_014,protest,,False,,,,unknown,[],,0.5,False,The court ruling sparked demonstrations across the city center; human rights groups condemned the decision.," ```json
+{
+  ""event_type"": ""protest"",
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""The court ruling sparked demonstrations""
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": ""across the city center""
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""The court ruling sparked demonstrations""}, {""field"": ""location"", ""quote"": ""across the city center""}]",[]
+doc_015,election,,True,,,,unknown,[],,0.5,False,The article mentions reforms and elections in passing but gives no clear time or place.," ```json
+{
+  ""event_type"": ""election"",
+  ""event_date_iso"": null,
+  ""date_is_approximate"": true,
+  ""country"": null,
+  ""admin1_or_state"": null,
+  ""city_or_local"": null,
+  ""geo_precision"": ""unknown"",
+  ""actors"": [],
+  ""outcome_summary"": null,
+  ""extraction_confidence"": 0.5,
+  ""uncertainty_flags"": [],
+  ""evidence"": [
+    {
+      ""field"": ""event_type"",
+      ""quote"": ""reforms and elections""
+    },
+    {
+      ""field"": ""date"",
+      ""quote"": """"
+    },
+    {
+      ""field"": ""location"",
+      ""quote"": """"
+    }
+  ]
+}
+```","[{""field"": ""event_type"", ""quote"": ""reforms and elections""}, {""field"": ""date"", ""quote"": """"}, {""field"": ""location"", ""quote"": """"}]",[]
